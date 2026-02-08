@@ -1,0 +1,35 @@
+/* SmartTab Toolkit Extension Icon */
+/* This is a simple SVG-to-PNG conversion guideline */
+/* 
+   To create the icon:
+   1. Use an online SVG to PNG converter or
+   2. Use ImageMagick/Inkscape locally
+   3. Convert the SVG below to a 128x128 PNG
+   4. Save as icons/icon.png
+*/
+
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="128" height="128" fill="#5e72e4" rx="24"/>
+  
+  <!-- Outer circle -->
+  <circle cx="64" cy="64" r="48" fill="white" opacity="0.1"/>
+  
+  <!-- Main tab shape -->
+  <g transform="translate(64, 64)">
+    <!-- Tab rectangle -->
+    <rect x="-32" y="-24" width="64" height="48" rx="6" fill="white"/>
+    
+    <!-- Tab notation -->
+    <text x="0" y="8" font-size="24" font-weight="bold" text-anchor="middle" fill="#5e72e4" font-family="system-ui">?</text>
+    
+    <!-- Checkmark overlay (saved state) -->
+    <circle cx="20" cy="-12" r="12" fill="#48bb78" opacity="0.9"/>
+    <path d="M 16 -12 L 18 -10 L 22 -14" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
+
+Note: This SVG needs to be converted to PNG using:
+- Online converter: convertio.co or similar
+- CLI: magick convert icon.svg -size 128x128 icon.png
+- VS Code extension: SVG to PNG

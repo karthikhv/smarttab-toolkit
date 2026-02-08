@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartTab Toolkit</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-top">
+                <h1 class="title">Why did you open this tab?</h1>
+                <div class="theme-toggle" id="themeToggle" role="switch" aria-checked="false" aria-label="Toggle dark mode" tabindex="0">
+                    <input type="checkbox" id="themeCheckbox" class="theme-checkbox" hidden>
+                    <span class="toggle-slider"></span>
+                    <span class="toggle-icon sun">☀️</span>
+                    <span class="toggle-icon moon">🌙</span>
+                </div>
+            </div>
+            <p class="subtitle" id="tabUrl"></p>
+        </div>
+
+        <form class="form" id="noteForm">
+            <textarea
+                id="noteInput"
+                class="textarea"
+                placeholder="Write a quick note to remember why you opened this tab..."
+                maxlength="1000"
+                aria-label="Tab note"
+            ></textarea>
+            
+            <div class="char-count">
+                <span id="charCount">0</span>/1000
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary" aria-label="Save note">
+                    Save
+                </button>
+                <button type="button" class="btn btn-secondary" id="clearBtn" aria-label="Clear note">
+                    Clear
+                </button>
+            </div>
+        </form>
+
+        <div class="feedback" id="feedback" aria-live="polite" aria-atomic="true">
+            <span class="feedback-text" id="feedbackText"></span>
+        </div>
+
+        <!-- Saved Notes Tabs -->
+        <div class="saved-notes-section" id="savedNotesSection" style="display: none;">
+            <div class="tabs-container">
+                <div class="tabs-header">
+                    <h3 class="tabs-title">Saved Notes</h3>
+                    <button class="tabs-clear-all" id="clearAllBtn" aria-label="Clear all saved notes" title="Clear all">✕</button>
+                </div>
+                <div class="tabs-list" id="tabsList" role="tablist"></div>
+            </div>
+            <div class="tabs-content" id="tabsContent"></div>
+        </div>
+
+        <footer class="footer">
+            <p>Notes stored locally. <a href="#" title="Privacy info">No data is sent anywhere.</a></p>
+        </footer>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
