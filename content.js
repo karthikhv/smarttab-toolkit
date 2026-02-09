@@ -252,6 +252,15 @@ chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     });
 });
 */
+chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+    if (msg.action === 'requestNoteForTab') {
+        // Load sticky note for current tab
+        loadStickyNote();
+    } else if (msg.action === 'noteUpdated') {
+        // Update sticky note content
+        updateStickyNote(msg.noteContent);
+    }
+});
 
 // Listen for updates from popup
 chrome.runtime.onMessage.addListener((msg) => {

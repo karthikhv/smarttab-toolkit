@@ -36,6 +36,22 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     return false;
 });
 
+
+chrome.action.onClicked.addListener(async (tab) => {
+    if (!tab.id) return;
+
+    try {
+        await chrome.scripting.executeScript({
+            target: { tabId: tab.id },
+            files: ['content.js']
+        });
+
+        // Send message to content.js to load the note for this tab
+        chrome.tabs.sendMessage(tab.id, { action: 'requestNoteForTab' });
+    } catch (error) {
+        console.error('Failed to inject content script:', error);
+    }
+});
 // ============================================
 // Context Menu (Future Feature)
 // ============================================
